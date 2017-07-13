@@ -2,9 +2,9 @@ import {render}             from 'react-dom';
 import DataActions          from 'flux/actions/DataActions.js';
 
 import Home                 from 'components/Home.js';
-import About                from 'components/About.js';
+/*import About                from 'components/About.js';
 import Contact              from 'components/Contact.js';
-import Header               from 'components/Header.js';
+*/import Header               from 'components/Header.js';
 
 import {
     BrowserRouter as Router,
@@ -16,10 +16,10 @@ import {
 
 class AppInitializer {
 
-    templates = {
+    /*templates = {
         'about': About,
         'contact': Contact
-    }
+    }*/
 
     buildRoutes(data){
         return data.pages.map((page, i) => {
