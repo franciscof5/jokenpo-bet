@@ -24,7 +24,7 @@ We recommend use linux with last stable versions of NODE and NPM
 - [x] Start repo at github
 - [ ] ~~Integrate with wordpress to get posts and page~~
 - [ ] ~~WordPress login~~
-- [ ] Basic JOKENPO interface
+- [x] Basic JOKENPO interface
 - [ ] CPU IA JOKENPO game
 - [ ] Online user game
 - [ ] Money bet system
