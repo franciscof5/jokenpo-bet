@@ -9,6 +9,7 @@ Components:
 - react-bootstrap
 - react-timmer
 - simple-react-modal
+
 ## Repo Installation
 For install the repo just
 ```
@@ -31,9 +32,8 @@ We recommend use linux with last stable versions of NODE and NPM
 - [ ] ~~WordPress login~~
 - [x] Basic JOKENPO interface
 - [x] Install react-bootstrap
-- [ ] CPU IA JOKENPO game
-- [ ] Online user game
-- [ ] Money bet system
+- [x] Timer
+- [ ] Bet System
 
 ## Author
 Author: Francisco Matelli Matulovic
