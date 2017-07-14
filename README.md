@@ -8,7 +8,8 @@ Components:
 - react-dom
 - react-bootstrap
 - react-timmer
-- simple-react-modal
+- react-modal
+- react-ga
 
 ## Repo Installation
 For install the repo just
@@ -34,6 +35,7 @@ We recommend use linux with last stable versions of NODE and NPM
 - [x] Install react-bootstrap
 - [x] Timer
 - [ ] Bet System
+- [ ] Google Analytics for f5sites.com host
 
 ## Author
 Author: Francisco Matelli Matulovic

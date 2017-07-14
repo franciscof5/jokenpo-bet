@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 /*import scissors from './scissors.svg';
 import rock from './rock.svg';
 import paper from './paper.svg';*/
-import { FormControl,Button,Modal,ModalHeader,ModalTitle,ModalBody,ModalFooter,Popover,Tooltip,OverlayTrigger,mountNode } from 'react-bootstrap';
+//import { FormControl,Button,Modal,ModalHeader,ModalTitle,ModalBody,ModalFooter,Popover,Tooltip,OverlayTrigger,mountNode } from 'react-bootstrap';
+import { FormControl,Button,Popover,Tooltip,OverlayTrigger,mountNode } from 'react-bootstrap';
 import './App.css';
 import Timer from 'react-timer'
-import Modal, {closeStyle} from 'simple-react-modal'
+//import Modal, {closeStyle} from 'simple-react-modal'
+import Modal from 'react-modal'
 
 /*class IntroModal extends Modal {
   retun (
@@ -93,7 +95,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Modal />
+        <BIGTEXT />
         <div className="App-header">
           <h2>JOKENPO BET</h2>
           <ScoreBoard />
@@ -108,7 +110,7 @@ class App extends Component {
           <br />
           To play enter a bet and quickly select the desired option (scissors, rock and paper)
           <br />
-          <IntroModal />
+          InstructionsModal
           <hr />
           Fame Hall
           Shame Hall
@@ -142,7 +144,7 @@ class BIGTEXT extends Component {
       <Modal
       className="test-class" //this will completely overwrite the default css completely 
       style={{background: 'red'}} //overwrites the default background 
-      containerStyle={{background: 'blue'}} //changes styling on the inner content area 
+      containerStyle={{background: 'black'}} //changes styling on the inner content area 
       containerClassName="test"
       closeOnOuterClick={true}
       show={this.state.show}
@@ -156,7 +158,7 @@ class BIGTEXT extends Component {
     )
   }
 }
-
+/*
 const IntroModal = React.createClass({
   getInitialState() {
     return { showModal: false };
@@ -229,7 +231,7 @@ const IntroModal = React.createClass({
     );
   }
 });
-
+*/
 //ReactDOM.render(<IntroModal />, mountNode);
 
 export default App;
