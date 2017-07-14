@@ -8,7 +8,7 @@ Components:
 - react-dom
 - react-bootstrap
 - react-timmer
-
+- simple-react-modal
 ## Repo Installation
 For install the repo just
 ```

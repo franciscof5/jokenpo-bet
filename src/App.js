@@ -6,6 +6,7 @@ import paper from './paper.svg';*/
 import { FormControl,Button,Modal,ModalHeader,ModalTitle,ModalBody,ModalFooter,Popover,Tooltip,OverlayTrigger,mountNode } from 'react-bootstrap';
 import './App.css';
 import Timer from 'react-timer'
+import Modal, {closeStyle} from 'simple-react-modal'
 
 /*class IntroModal extends Modal {
   retun (
@@ -37,7 +38,7 @@ class Option extends React.Component {
       <button className="scissors">
         <img src={ob1} className="App-logo" alt="logo" />
         <br />
-        {ob}
+        {ob}{this.props.option_object.hotk}
         {/* TODO */}
       </button>
     );
@@ -45,8 +46,8 @@ class Option extends React.Component {
 }
 
 class TimerProjectimer extends Component {
-  const OPTIONS = { prefix: 'seconds elapsed!', delay: 100}
   render () {
+    const OPTIONS = { prefix: 'seconds elapsed!', delay: 100}
     return (
       <div>
         <Timer options={OPTIONS} />
@@ -56,6 +57,14 @@ class TimerProjectimer extends Component {
 }
 
 class ScoreBoard extends Component {
+  render() {
+    return (
+      <p>Stack: 100 | Goal:1000 | Rounds: 0</p>
+    )
+  }
+}
+
+class BetSystem extends Component {
   render() {
     var config = {
       total:1000,
@@ -70,11 +79,11 @@ class ScoreBoard extends Component {
             id="formControlsText"
             type="text"
             label="Text"
-            placeholder="Enter text"
+            placeholder="Enter Bet"
           />
+          <Button bsStyle="primary" bsSize="large">BET!</Button>
         </form>
-        <input type="text" />
-        <Button bsStyle="primary" bsSize="large">BET!</Button>
+        
       </div>
     )
   }
@@ -87,24 +96,64 @@ class App extends Component {
         <Modal />
         <div className="App-header">
           <h2>JOKENPO BET</h2>
-          <TimerProjectimer />
-          <Option option_object="scissors" />
-          <Option option_object="rock" />
-          <Option option_object="paper" />
           <ScoreBoard />
-          <h2>choose wisely</h2>
+          <Option option_object="scissors" hotk="1" />
+          <Option option_object="rock" hotk="2" />
+          <Option option_object="paper" hotk="3" />
+          <BetSystem />
         </div>
         <p className="App-intro">
-          Simple JOKENPO game, developed by <a href="https://www.franciscomat.com">Francisco Mat</a> | Hosted by <a href="https://www.f5sites.com">F5 Sites</a>
+          <TimerProjectimer />
           <br />
           <br />
-          To play simple select the desired option, scissors, rock and paper
+          To play enter a bet and quickly select the desired option (scissors, rock and paper)
           <br />
           <IntroModal />
-          
+          <hr />
+          Fame Hall
+          Shame Hall
+          <hr />
+          Simple JOKENPO game, developed by <a href="https://www.franciscomat.com">Francisco Mat</a> | Hosted by <a href="https://www.f5sites.com">F5 Sites</a>
         </p>
       </div>
     );
+  }
+}
+
+class BIGTEXT extends Component {
+  constructor(){
+    super()
+    this.state = {}
+  }
+ 
+  show(){
+    this.setState({show: true})
+  }
+ 
+  close(){
+    this.setState({show: false})
+  }
+ 
+ 
+  render(){
+    return (
+      <div>
+      <a onClick={this.show.bind(this)}>Open Modal</a>
+      <Modal
+      className="test-class" //this will completely overwrite the default css completely 
+      style={{background: 'red'}} //overwrites the default background 
+      containerStyle={{background: 'blue'}} //changes styling on the inner content area 
+      containerClassName="test"
+      closeOnOuterClick={true}
+      show={this.state.show}
+      onClose={this.close.bind(this)}>
+ 
+      <a style={closeStyle} onClick={this.close.bind(this)}>X</a>
+      <div>hey</div>
+ 
+      </Modal>
+      </div>
+    )
   }
 }
 
