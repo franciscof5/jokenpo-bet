@@ -2,14 +2,14 @@
 Online game with fake money bet
 
 ## Description
-Native REACT game for demo and studyng porpouses, with possible WordPress integration (login and data management)
+Native REACT (ES6) game for demo and studyng porpouses, with possible WordPress integration (login and data management)
 
 Components:
 - react-dom
 - react-bootstrap
 - react-timmer
-- react-modal
 - react-ga
+- react-notification-system
 
 ## Repo Installation
 For install the repo just
@@ -36,7 +36,7 @@ We recommend use linux with last stable versions of NODE and NPM
 - [x] Timer
 - [ ] Bet System
 - [ ] Google Analytics for f5sites.com host
-
+- [ ] Install Forever
 ## Author
 Author: Francisco Matelli Matulovic
 

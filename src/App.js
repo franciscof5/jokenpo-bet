@@ -1,14 +1,17 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
-/*import scissors from './scissors.svg';
-import rock from './rock.svg';
-import paper from './paper.svg';*/
-//import { FormControl,Button,Modal,ModalHeader,ModalTitle,ModalBody,ModalFooter,Popover,Tooltip,OverlayTrigger,mountNode } from 'react-bootstrap';
-import { FormControl,Button,Popover,Tooltip,OverlayTrigger,mountNode } from 'react-bootstrap';
+import { FormControl,Button,Modal,ModalHeader,ModalTitle,ModalBody,ModalFooter,Popover,Tooltip,OverlayTrigger,mountNode } from 'react-bootstrap';
+//import { FormControl,Button,Popover,Tooltip,OverlayTrigger,mountNode } from 'react-bootstrap';
 import './App.css';
 import Timer from 'react-timer'
-//import Modal, {closeStyle} from 'simple-react-modal'
-import Modal from 'react-modal'
+import NotificationSystem from 'react-notification-system'
+//var NotificationSystem = require('react-notification-system');
+//import 'react-alertify-js'
+import ReactGA from 'react-ga'
+
+//IF HOSTNAME
+//var ReactGA = require('react-ga');
+ReactGA.initialize('UA-1055959-33');
 
 /*class IntroModal extends Modal {
   retun (
@@ -29,7 +32,7 @@ import Modal from 'react-modal'
   )
 }*/
 
-class Option extends React.Component {
+class Option extends Component {
   render() {
     var config = {
       option_object: this.props.option_object,
@@ -67,6 +70,14 @@ class ScoreBoard extends Component {
 }
 
 class BetSystem extends Component {
+
+  bet() {
+    this._notificationSystem.addNotification({
+      message: 'Notification message',
+      level: 'success'
+    });
+    alert('JO KEN PO');
+  }
   render() {
     var config = {
       total:1000,
@@ -75,7 +86,9 @@ class BetSystem extends Component {
       secondsPassed:0
     }
     return (
+      
       <div>
+        <NotificationSystem ref="notificationSystem" />
         <form>
           <FormControl
             id="formControlsText"
@@ -83,7 +96,14 @@ class BetSystem extends Component {
             label="Text"
             placeholder="Enter Bet"
           />
-          <Button bsStyle="primary" bsSize="large">BET!</Button>
+          <Button 
+            bsStyle="primary" 
+            bsSize="large"
+            onClick={this.bet}
+            >
+            BET!
+
+          </Button>
         </form>
         
       </div>
@@ -95,7 +115,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <BIGTEXT />
         <div className="App-header">
           <h2>JOKENPO BET</h2>
           <ScoreBoard />
@@ -110,7 +129,7 @@ class App extends Component {
           <br />
           To play enter a bet and quickly select the desired option (scissors, rock and paper)
           <br />
-          InstructionsModal
+          <InstructionsModal />
           <hr />
           Fame Hall
           Shame Hall
@@ -121,7 +140,7 @@ class App extends Component {
     );
   }
 }
-
+/*
 class BIGTEXT extends Component {
   constructor(){
     super()
@@ -158,8 +177,8 @@ class BIGTEXT extends Component {
     )
   }
 }
-/*
-const IntroModal = React.createClass({
+*/
+const InstructionsModal = React.createClass({
   getInitialState() {
     return { showModal: false };
   },
@@ -186,23 +205,21 @@ const IntroModal = React.createClass({
 
     return (
       <div>
-        <p>Click to get the full Modal experience!</p>
-
         <Button
           bsStyle="primary"
           bsSize="large"
           onClick={this.open}
         >
-          Detailed Instructions
+          Detailed Play Instructions
         </Button>
 
         <Modal show={this.state.showModal} onHide={this.close}>
           <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
+            <Modal.Title>JOKENPO BET - Help</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <h4>Text in a modal</h4>
-            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+            <h4>Challenge</h4>
+            <p>Be the most fast to win out 1000 on game bet and grant yourself on Hall of Fame but if you take it to long you could be at Shame Hall</p>
 
             <h4>Popover in a modal</h4>
             <p>there is a <OverlayTrigger overlay={popover}><a href="#">popover</a></OverlayTrigger> here</p>
@@ -231,7 +248,7 @@ const IntroModal = React.createClass({
     );
   }
 });
-*/
+
 //ReactDOM.render(<IntroModal />, mountNode);
 
 export default App;
