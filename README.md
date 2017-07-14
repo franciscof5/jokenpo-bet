@@ -4,6 +4,11 @@ Online game with fake money bet
 ## Description
 Native REACT game for demo and studyng porpouses, with possible WordPress integration (login and data management)
 
+Components:
+- react-dom
+- react-bootstrap
+- react-timmer
+
 ## Repo Installation
 For install the repo just
 ```
@@ -25,6 +30,7 @@ We recommend use linux with last stable versions of NODE and NPM
 - [ ] ~~Integrate with wordpress to get posts and page~~
 - [ ] ~~WordPress login~~
 - [x] Basic JOKENPO interface
+- [x] Install react-bootstrap
 - [ ] CPU IA JOKENPO game
 - [ ] Online user game
 - [ ] Money bet system
