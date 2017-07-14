@@ -70,23 +70,23 @@ class ScoreBoard extends Component {
 }
 
 class BetSystem extends Component {
-
-  bet() {
-    this._notificationSystem.addNotification({
+  _notificationSystem: null
+  bet(event) {
+    event.preventDefault();
+    this.NotificationSystem.addNotification({
       message: 'Notification message',
       level: 'success'
     });
     alert('JO KEN PO');
   }
-  render() {
-    var config = {
-      total:1000,
-      stack:100,
-      betted:0,
-      secondsPassed:0
-    }
+  /*var config = {
+    total:1000,
+    stack:100,
+    betted:0,
+    secondsPassed:0
+  }*/
+  render() { 
     return (
-      
       <div>
         <NotificationSystem ref="notificationSystem" />
         <form>
@@ -102,7 +102,6 @@ class BetSystem extends Component {
             onClick={this.bet}
             >
             BET!
-
           </Button>
         </form>
         
@@ -221,24 +220,14 @@ const InstructionsModal = React.createClass({
             <h4>Challenge</h4>
             <p>Be the most fast to win out 1000 on game bet and grant yourself on Hall of Fame but if you take it to long you could be at Shame Hall</p>
 
-            <h4>Popover in a modal</h4>
-            <p>there is a <OverlayTrigger overlay={popover}><a href="#">popover</a></OverlayTrigger> here</p>
-
-            <h4>Tooltips in a modal</h4>
-            <p>there is a <OverlayTrigger overlay={tooltip}><a href="#">tooltip</a></OverlayTrigger> here</p>
-
+            <h4>Basic JOKENPO BET rules</h4>
+            <p>Time is passing by, you are always in time-pressure ambient, so you must decide fast to get to the top of Hall's Fame</p>
+            <p>When stack's growth it decrease the lag time between IA choice to make hard the game</p>
+            
             <hr />
 
-            <h4>Overflowing text to show scroll behavior</h4>
-            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
-            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
-            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+            <h4>Pontuation Rules</h4>
+            <p>The final score is a formula. Score = Seconds / Rounds.</p>
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.close}>Close</Button>
