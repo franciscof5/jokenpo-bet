@@ -5,32 +5,14 @@ import { FormControl,Button,Modal,ModalHeader,ModalTitle,ModalBody,ModalFooter,P
 import './App.css';
 import Timer from 'react-timer'
 import NotificationSystem from 'react-notification-system'
-//var NotificationSystem = require('react-notification-system');
+
+//todo JSSOUND
 //import 'react-alertify-js'
 import ReactGA from 'react-ga'
 
-//IF HOSTNAME
-//var ReactGA = require('react-ga');
+//Todo: IF HOSTNAME
 ReactGA.initialize('UA-1055959-33');
 
-/*class IntroModal extends Modal {
-  retun (
-    <Modal
-  isOpen={bool}
-  onAfterOpen={afterOpenFn}
-  onRequestClose={requestCloseFn}
-  closeTimeoutMS={n}
-  shouldCloseOnOverlayClick={false}
-  style={customStyle}
-  contentLabel="No Overlay Click Modal"
->
-
-  <h1>Force Modal</h1>
-  <p>Modal cannot be closed when clicking the overlay area</p>
-  <button onClick={handleCloseFunc}>Close Modal...</button>
-</Modal>
-  )
-}*/
 
 class Option extends Component {
   render() {
@@ -69,16 +51,59 @@ class ScoreBoard extends Component {
   }
 }
 
-class BetSystem extends Component {
-  _notificationSystem: null
-  bet(event) {
-    event.preventDefault();
-    this.NotificationSystem.addNotification({
-      message: 'Notification message',
-      level: 'success'
-    });
-    alert('JO KEN PO');
-  }
+ function BetSystem() {
+  //_notificationSystem: null
+  //constructor(props) {
+  //  super(props);
+  //}
+  //bet() {    
+    //App._addNotification()
+    //App._addNotification.bind(this)
+    //this._addNotification.bind(this)
+    //this._addNotification
+    alert("JOKENPO");
+    //() => this._addNotification
+  //}
+  return null
+  /*var config = {
+    total:1000,
+    stack:100,
+    betted:0,
+    secondsPassed:0
+  }*/
+  
+}
+//var BetS = new BetSystem();
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  content: {
+    backgroundColor: '#fff',
+    padding: 30,
+  },
+  button: {
+    alignSelf: 'center',
+    marginTop: 20,
+    width: 100,
+  },
+});
+
+class BetBoard extends Component {
+  //_notificationSystem: null
+  //constructor(props) {
+  //  super(props);
+  //}
+  //bet() {    
+    //App._addNotification()
+    //App._addNotification.bind(this)
+    //this._addNotification.bind(this)
+    //this._addNotification
+    //alert("JOKENPO");
+    //() => this._addNotification
+  //}
+
   /*var config = {
     total:1000,
     stack:100,
@@ -86,9 +111,12 @@ class BetSystem extends Component {
     secondsPassed:0
   }*/
   render() { 
-    return (
-      <div>
+    return ( 
+
+        
+      <View style={styles.container}>
         <NotificationSystem ref="notificationSystem" />
+        <Text style={styles.intro}>Hello world!</Text>
         <form>
           <FormControl
             id="formControlsText"
@@ -99,18 +127,54 @@ class BetSystem extends Component {
           <Button 
             bsStyle="primary" 
             bsSize="large"
-            onClick={this.bet}
+            onClick={BetSystem.bet()}
             >
             BET!
           </Button>
-        </form>
-        
-      </div>
+        </form> 
+      </View>
+
     )
   }
 }
 
+/*class Not extends Component {
+  constructor() {
+    super();
+    this._notificationSystem = null;
+    //this._notificationSystem = this._notificationSystem.bind(this);
+    //this._notificationSystem = () => this._notificationSystem.bind(this);
+  }
+
+  _addNotification(event) {
+    event.preventDefault();
+    if (this._notificationSystem) {
+      this._notificationSystem.addNotification({
+        message: 'Notification message',
+        level: 'success'
+      });
+    }
+  }
+}*/
+
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this._notificationSystem = null;
+    //this._notificationSystem = this._notificationSystem.bind(this);
+    //this._notificationSystem = () => this._notificationSystem.bind(this);
+  }
+
+  _addNotification(event) {
+    event.preventDefault();
+    if (this._notificationSystem) {
+      this._notificationSystem.addNotification({
+        message: 'Notification message',
+        level: 'success'
+      });
+    }
+  }
+  
   render() {
     return (
       <div className="App">
@@ -123,6 +187,9 @@ class App extends Component {
           <BetSystem />
         </div>
         <p className="App-intro">
+          <button onClick={()=>BetSystem.bet()}>B</button>
+          <button onClick={this._addNotification.bind(this)}>Add notification</button>
+          <NotificationSystem ref={n => this._notificationSystem = n} />
           <TimerProjectimer />
           <br />
           <br />
@@ -140,43 +207,11 @@ class App extends Component {
   }
 }
 /*
-class BIGTEXT extends Component {
-  constructor(){
-    super()
-    this.state = {}
-  }
- 
-  show(){
-    this.setState({show: true})
-  }
- 
-  close(){
-    this.setState({show: false})
-  }
- 
- 
-  render(){
-    return (
-      <div>
-      <a onClick={this.show.bind(this)}>Open Modal</a>
-      <Modal
-      className="test-class" //this will completely overwrite the default css completely 
-      style={{background: 'red'}} //overwrites the default background 
-      containerStyle={{background: 'black'}} //changes styling on the inner content area 
-      containerClassName="test"
-      closeOnOuterClick={true}
-      show={this.state.show}
-      onClose={this.close.bind(this)}>
- 
-      <a style={closeStyle} onClick={this.close.bind(this)}>X</a>
-      <div>hey</div>
- 
-      </Modal>
-      </div>
-    )
-  }
-}
-*/
+var _getRandomPosition = function() {
+  var positions = Object.keys(constants.positions);
+  return positions[Math.floor(Math.random() * ((positions.length - 1) + 1)) + 0];
+};*/
+
 const InstructionsModal = React.createClass({
   getInitialState() {
     return { showModal: false };

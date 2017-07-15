@@ -34,6 +34,7 @@ We recommend use linux with last stable versions of NODE and NPM
 - [x] Basic JOKENPO interface
 - [x] Install react-bootstrap
 - [x] Timer
+- [ ] Make it react-native
 - [ ] Bet System
 - [ ] Google Analytics for f5sites.com host
 - [ ] Install Forever
