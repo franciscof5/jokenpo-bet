@@ -1,7 +1,7 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component, Text, View, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import { FormControl,Button,Modal,ModalHeader,ModalTitle,ModalBody,ModalFooter,Popover,Tooltip,OverlayTrigger,mountNode } from 'react-bootstrap';
-//import { FormControl,Button,Popover,Tooltip,OverlayTrigger,mountNode } from 'react-bootstrap';
+/*import { FormControl,Button,Popover,Tooltip,OverlayTrigger,mountNode } from 'react-bootstrap';*/
 import './App.css';
 import Timer from 'react-timer'
 import NotificationSystem from 'react-notification-system'
@@ -75,7 +75,7 @@ class ScoreBoard extends Component {
 }
 //var BetS = new BetSystem();
 
-const styles = StyleSheet.create({
+/*const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
@@ -88,8 +88,8 @@ const styles = StyleSheet.create({
     marginTop: 20,
     width: 100,
   },
-});
-
+});*/
+/*
 class BetBoard extends Component {
   //_notificationSystem: null
   //constructor(props) {
@@ -104,12 +104,12 @@ class BetBoard extends Component {
     //() => this._addNotification
   //}
 
-  /*var config = {
+  var config = {
     total:1000,
     stack:100,
     betted:0,
     secondsPassed:0
-  }*/
+  }
   render() { 
     return ( 
 
@@ -136,7 +136,7 @@ class BetBoard extends Component {
 
     )
   }
-}
+}*/
 
 /*class Not extends Component {
   constructor() {
@@ -161,6 +161,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this._notificationSystem = null;
+    this.state = { name: "world" };
     //this._notificationSystem = this._notificationSystem.bind(this);
     //this._notificationSystem = () => this._notificationSystem.bind(this);
   }
@@ -187,7 +188,7 @@ class App extends Component {
           <BetSystem />
         </div>
         <p className="App-intro">
-          <button onClick={()=>BetSystem.bet()}>B</button>
+          <button onClick={(e) => this._addNotification(e)}>{this.state.name}</button>
           <button onClick={this._addNotification.bind(this)}>Add notification</button>
           <NotificationSystem ref={n => this._notificationSystem = n} />
           <TimerProjectimer />
